@@ -10,6 +10,8 @@ import it.unibo.collections.social.impl.UserImpl;
 
 import java.util.Collection;
 
+import javax.sound.sampled.AudioFormat;
+
 /**
  * This is going to act as a test for
  * {@link SocialNetworkUserImpl}.
@@ -24,14 +26,6 @@ public final class TestSocialNetworkUser {
 
     private TestSocialNetworkUser() {
     }
-
-    /**
-     * This is going to act as a test for
-     * {@link SocialNetworkUserImpl}.
-     * 
-     * @param args
-     *            ignored
-     */
     public static void main(final String... args) {
         /*
          * Create 5 social network users (SocialNetworkUser):
@@ -48,11 +42,11 @@ public final class TestSocialNetworkUser {
          * 
          * * Adam Smith, asmith, (no age)
          */
-        final SocialNetworkUser<User> kbacon = null; //TODO
-        final SocialNetworkUser<User> dwashington = null; //TODO
-        final SocialNetworkUser<User> mgladwell = null; //TODO
-        final SocialNetworkUser<User> ntaleb = null; //TODO
-        final User asmith = null; //TODO
+        final SocialNetworkUserImpl<User> kbacon = new SocialNetworkUserImpl<User>("Kevin", "Bacon", "kbacon", 56);
+        final SocialNetworkUserImpl<User> dwashington = new SocialNetworkUserImpl<User>("Denzel", "Washington", "dwashington", 59); 
+        final SocialNetworkUserImpl<User> mgladwell = new SocialNetworkUserImpl<User>("Malcom", "Gladwell", "mgladwell", 51); 
+        final SocialNetworkUserImpl<User> ntaleb = new SocialNetworkUserImpl<User>("Nicholas", "Taleb", "ntaleb", 54); 
+        final UserImpl asmith = new UserImpl("Adam", "Smith", "asmith"); 
         /*
          * Make people follow each other
          */

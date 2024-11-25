@@ -3,15 +3,55 @@ package it.unibo.generics.graph;
 import it.unibo.generics.graph.api.Graph;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
  */
-public final class UseGraph {
-
+public final class UseGraph<N> implements Graph<N> {
+    private TreeSet<N> nodeList;
+    private TreeSet<N> edgeList;
     private UseGraph() {
+        this.nodeList = new TreeSet<>();
+        this.edgeList = new TreeSet<>();
+    }
+
+    @Override
+    public void addNode(N node) {
+        this.nodeList.add(node);
+    }
+
+    @Override
+    public void addEdge(N source, N target) {
+        this.edgeList.add(new String({source, target}));
+    }
+
+    @Override
+    public Set<N> nodeSet() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'nodeSet'");
+    }
+
+    @Override
+    public Set<N> linkedNodes(N node) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'linkedNodes'");
+    }
+
+    @Override
+    public List<N> getPath(N source, N target) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPath'");
+    }
+
+    public TreeSet<N> getNodeList(){
+        return new TreeSet<>(this.nodeList);
+    }
+    public TreeSet<N> getEdgeList(){
+        return new TreeSet<>(this.nodeList);
     }
 
     /**
@@ -22,7 +62,7 @@ public final class UseGraph {
         /*
          * Test your graph implementation(s) by calling testGraph
          */
-        testGraph(null);
+        testGraph(new UseGraph<String>());
     }
 
     private static void testGraph(final Graph<String> graph) {
@@ -67,5 +107,5 @@ public final class UseGraph {
 
     private static String[] splitOnWhiteSpace(final String target) {
         return target.split("\\s+");
-    }
+    }   
 }

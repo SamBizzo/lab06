@@ -21,35 +21,10 @@ public class UserImpl implements User {
      */
     private int hash;
 
-    /**
-     * Builds a new UserImpl. An age not specified means that the age field is
-     * going to have a value equal to -1.
-     * 
-     * @param name
-     *            the user firstname
-     * @param surname
-     *            the user lastname
-     * @param user
-     *            alias of the user, i.e. the way a user is identified on an
-     *            application
-     */
     public UserImpl(final String name, final String surname, final String user) {
-        this(name, surname, user, -1);
+        this(Objects.requireNonNull(name), Objects.requireNonNull(surname), Objects.requireNonNull(user), -1);
     }
 
-    /**
-     * Builds a new UserImpl.
-     * 
-     * @param name
-     *            the user firstname
-     * @param surname
-     *            the user lastname
-     * @param userAge
-     *            user's age
-     * @param user
-     *            alias of the user, i.e. the way a user is identified within an
-     *            application
-     */
     public UserImpl(final String name, final String surname, final String user, final int userAge) {
         this.firstName = Objects.requireNonNull(name);
         this.lastName = Objects.requireNonNull(surname);
@@ -57,57 +32,34 @@ public class UserImpl implements User {
         this.username = Objects.requireNonNull(user);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String getFirstName() {
         return this.firstName;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String getLastName() {
         return this.lastName;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public String getUsername() {
         return this.username;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public int getAge() {
         return this.age;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public boolean isAgeDefined() {
         return this.age > 0;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public final boolean equals(final Object o) {
-        if (this == o) {
-            /*
-             * Performance optimization
-             */
-            return true;
-        }
+        if (this == o) {return true;}
         if (o != null && getClass().equals(o.getClass())) {
             final UserImpl user = (UserImpl) o;
             return firstName.equals(user.getFirstName())
@@ -118,9 +70,6 @@ public class UserImpl implements User {
         return false;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public final int hashCode() {
         /*
